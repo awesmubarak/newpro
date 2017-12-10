@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as file:
 setup(
     name='newpro',
     version='1.0.0',
-    description=' writing projects.',
+    description='A script to create boilerplates for text projects.',
     long_description=long_description,
     url='https://github.com/awesmubarak/newpro',
     author='Awes Mubarak',
