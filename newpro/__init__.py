@@ -51,11 +51,12 @@ def make_bibliography(config):
         return
     example = (
         "/* @misc{ CHANGEME, */\n"
-        "/*        author = \"CHANGEME\", */\n"
-        "/*        title = \"CHANGEME\", */\n"
-        "/*        year = \"CHANGEME\", */\n"
-        "/*        publisher = \"CHANGEME\", */\n"
-        "/* } */\n")
+        '/*        author = "CHANGEME", */\n'
+        '/*        title = "CHANGEME", */\n'
+        '/*        year = "CHANGEME", */\n'
+        '/*        publisher = "CHANGEME", */\n'
+        "/* } */\n"
+    )
     short_pro_name = config["short_pro_name"]
     with open(path.join(short_pro_name, short_pro_name + ".bib"), "w") as file:
         file.write(example)
@@ -64,9 +65,11 @@ def make_bibliography(config):
 def make_makefile(config):
     """Create makefile."""
     short_pro_name = config["short_pro_name"]
-    base = ("{0}: {0}.md\n"
-            "\tpandoc {0}.md --from markdown --output {0}.pdf{1}\n"
-            "\tpandoc {0}.md --from markdown --to docx --output {0}.docx{1}")
+    base = (
+        "{0}: {0}.md\n"
+        "\tpandoc {0}.md --from markdown --output {0}.pdf{1}\n"
+        "\tpandoc {0}.md --from markdown --to docx --output {0}.docx{1}"
+    )
     if config["create_bib"]:
         bib_string = " --bibliography {0}".format(short_pro_name + ".bib")
     else:
@@ -93,10 +96,12 @@ def make_license(config):
         return
     short_pro_name = config["short_pro_name"]
     license_link = "Creative Commons Attribution 4.0 International License."
-    license_link = ("This work is licensed under a [Creative Commons"
-                    "Attribution 4.0 International License]"
-                    "(https://creativecommons.org/licenses/by/4.0/).\n"
-                    "<!-- TODO: see https://creativecommons.org/choose/ -->")
+    license_link = (
+        "This work is licensed under a [Creative Commons"
+        "Attribution 4.0 International License]"
+        "(https://creativecommons.org/licenses/by/4.0/).\n"
+        "<!-- TODO: see https://creativecommons.org/choose/ -->"
+    )
     with open(path.join(short_pro_name, short_pro_name + ".md"), "a") as file:
         file.write("-" * 79 + "\n" + license_link)
 
